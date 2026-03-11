@@ -9,6 +9,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+TOKEN = os.getenv("DISCORD_TOKEN")
+bot.run(TOKEN)
+
 # --- 用戶最後互動時間，用於超時自動離開 ---
 user_last_active = {}
 muted_until = {}  # user_id -> datetime (UTC)
@@ -888,4 +891,5 @@ async def test(ctx):
 
 # --- 啟動 bot ---
 bot.run("DISCORD_TOKEN")
+
 
